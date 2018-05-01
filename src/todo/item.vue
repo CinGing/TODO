@@ -6,7 +6,7 @@
       v-model="todo.completed"
       >
       <label>{{todo.content}}</label>
-      <button class="destory" @click="deleteTodo"></button>
+      <button class="destroy" @click="deleteTodo"></button>
   </div>
 </template>
 <script>
@@ -18,7 +18,9 @@ export default {
     }
   },
   methods: {
-    deleteTodo() {}
+    deleteTodo() {
+        this.$emit('del',this.todo.id)
+    }
   }
 };
 </script>
