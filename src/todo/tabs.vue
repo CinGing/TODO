@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .helper {
     font-weight: 100;
     display: flex;
@@ -57,7 +57,7 @@ export default {
     line-height: 30px;
     background-color: #ffffff;
     font-size: 14px;
-    font-smoothing: antialiased;
+    // font-smoothing: antialiased;
 }
 
 .left, .clear, .tabs {

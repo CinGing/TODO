@@ -9,7 +9,7 @@
 
 <script>
 import Header from "./todo/header.vue";
-import Footer from "./todo/footer.jsx";
+import Footer from "./todo/footer";
 import Todo from "./todo/todo.vue";
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 #app {
     position: absolute;
     left: 0;

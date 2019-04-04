@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .real-app {
   width: 600px;
   margin: 0 auto;
@@ -87,7 +87,7 @@ export default {
   outline: none;
   color: inherit;
   box-sizing: border-box;
-  font-smoothing: antialiased;
+  // font-smoothing: antialiased;
   padding: 16px 16px 16px 36px;
   border: none;
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
