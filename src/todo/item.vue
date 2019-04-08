@@ -1,15 +1,8 @@
 <template>
   <div :class="['todo-item',todo.completed ? 'completed' : '']">
-    <input
-      type="checkbox"
-      class="toggle"
-      v-model="todo.completed"
-    >
+    <input type="checkbox" class="toggle" v-model="todo.completed" @click="completeTodo">
     <label>{{todo.content}}</label>
-    <button
-      class="destroy"
-      @click="deleteTodo"
-    ></button>
+    <button class="destroy" @click="deleteTodo"></button>
   </div>
 </template>
 <script>
@@ -23,6 +16,10 @@ export default {
   methods: {
     deleteTodo() {
       this.$emit('del', this.todo.id)
+    },
+    completeTodo(){
+      var item = [this.todo.id,this.todo.content]
+      this.$emit('complete',item);
     }
   }
 };
@@ -37,7 +34,7 @@ export default {
 
   &:hover {
     .destroy:after {
-      content: '×';
+      content: "×";
     }
   }
 
@@ -75,11 +72,11 @@ export default {
   cursor: pointer;
 
   &:after {
-    content: url('../assets/images/round.svg');
+    content: url("../assets/images/round.svg");
   }
 
   &:checked:after {
-    content: url('../assets/images/done.svg');
+    content: url("../assets/images/done.svg");
   }
 }
 

@@ -1,17 +1,13 @@
 <template>
   <div class="helper">
-      <span class="left">{{unFinishedTodoLength}} items</span>
-      <span class="tabs">
-          <span
-              v-for="state in states"
-              :key="state"
-              :class="[state, filter === state ? 'actived' : '']"
-              @click="toggleFilter(state)"
-          >
-          {{state}}
-          </span>
+    <span class="left">{{unFinishedTodoLength}} 未完成</span>
+    <span class="tabs">
+      <span v-for="state in states" :key="state" :class="[state, filter === state ? 'actived' : '']" @click="toggleFilter(state)">
+        {{state}}
       </span>
-      <span class="clear" @click="clearAllCompleted">Clear All</span>
+    </span>
+    <span class="save" @click="save">Save</span>
+    <span class="clear" @click="clearAllCompleted">ClearAll</span>
   </div>
 </template>
 
@@ -29,7 +25,7 @@ export default {
   },
   data() {
     return {
-      states: ["all", "active", "completed"]
+      states: ["all", "active", "completed"],
     };
   },
   computed: {
@@ -39,60 +35,68 @@ export default {
   },
   methods: {
     clearAllCompleted() {
-        this.$emit('clearAllCompleted')
+      this.$emit('clearAllCompleted')
     },
     toggleFilter(state) {
-        this.$emit('toggle',state)
+      this.$emit('toggle', state)
     },
+    save() {
+      this.$emit('save')
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .helper {
-    font-weight: 100;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-    line-height: 30px;
-    background-color: #ffffff;
-    font-size: 14px;
-    // font-smoothing: antialiased;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  line-height: 30px;
+  background-color: #ffffff;
+  font-size: 14px;
+  // font-smoothing: antialiased;
 }
 
-.left, .clear, .tabs {
-    padding: 0 10px;
-    box-sizing: border-box;
+.left,
+.clear,
+.tabs .save {
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
-.left, .clear {
-    width: 150px;
+.left,
+.clear,
+.save {
+  width: 80px;
 }
 
 .left {
-    text-align: left;
+  text-align: left;
 }
 
-.clear {
-    text-align: right;
-    cursor: pointer;
+.clear,
+.save {
+  text-align: right;
+  cursor: pointer;
 }
 
 .tabs {
-    width: 200px;
-    display: flex;
-    justify-content: space-around;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
 
-    * {
-        display: inline-block;
-        padding: 0 10px;
-        cursor: pointer;
-        border: 1px solid rgba(175, 47, 47, 0);
+  * {
+    display: inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+    border: 1px solid rgba(175, 47, 47, 0);
 
-        &.actived {
-            border-color: rgba(175, 47, 47, 0.4);
-            border-radius: 5px;
-        }
+    &.actived {
+      border-color: rgba(175, 47, 47, 0.4);
+      border-radius: 5px;
     }
+  }
 }
 </style>

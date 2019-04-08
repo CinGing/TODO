@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <span>written by {{author}}</span>
+    <span>by {{author}}</span>
   </div>
 </template>
 
@@ -16,10 +16,12 @@ export default {
 
 <style lang="scss">
 #footer {
-  margin: 40px;
-  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+  margin-top:20px;
+  text-align: right;
   color: #eee;
-  font-size: 15px;
+  font-size: 17px;
   text-shadow: 0 3px 0 2px #eee;
 }
 </style>
